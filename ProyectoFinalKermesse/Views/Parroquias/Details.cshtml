@@ -1,0 +1,92 @@
+﻿@model ProyectoFinalKermesse.Models.Parroquia
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestión de tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Tabla Parroquia", "Index", "Parroquias", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li class="active"> Detalles  </li>
+    </ol>
+</div>
+<h2>Detalles</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.nombre)*@
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.direccion)*@
+            Dirección
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.telefono)*@
+            Teléfono
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.parroco)*@
+            Párroco
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.parroco)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.logo)*@
+            Logo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.logo)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.sitioWeb)*@
+            Sitio Web
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sitioWeb)
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+
+    <button class="btn-primary" style="background-color: #779FA1">
+        <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+        @Html.ActionLink("Regresar", "Index", "Parroquias", new { @style = "color:white;" })
+    </button>
+
+    <button type="submit" class="btn-primary" style="background-color: #779FA1">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.idParroquia }, new { @style = "color:white;" })
+    </button>
+</p>
+

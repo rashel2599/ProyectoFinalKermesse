@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ProyectoFinalKermesse.Models.CategoriaProducto>
+
+@{
+    ViewBag.Title = "Tabla Categoría de Productos ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+
+    <ol class="breadcrumb" style="background:none; font-size: 18px">
+        <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestión de tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Tabla Categoría de Productos", "Index", "CategoriaProductoes", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        
+    </ol>
+</div>
+
+<div class="carousel-inner" role="listbox">
+    <div class="item active">
+        <img src="~/fonts/BannersKermesse/10.png" alt="Banner 10">
+
+    </div>
+
+</div>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.nombre)*@
+            Nombre
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.descripcion)*@
+            Descripción
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.estado)*@
+            Estado
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idCatProd }, new { @style = "color: #779FA1" })
+                <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
+                @Html.ActionLink("Detalles", "Details", new { id = item.idCatProd }, new { @style = "color: #779FA1" }) |
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idCatProd }, new { @style = "color: #779FA1" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<hr /> 
+
+<p>
+    <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
+        @Html.ActionLink("Agregar nuevo", "Create", "CategoriaProductoes", new { @style = "color:white;" })
+        <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
+    </button>
+</p>

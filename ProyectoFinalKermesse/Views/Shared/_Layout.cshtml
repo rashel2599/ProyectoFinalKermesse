@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sistema Gestión de Kermesse</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #564154;">
+        <div class="container">
+            <div class="navbar-header">
+
+              
+                <button style="block-size: 50px; background-color: #564154; font-size: 18px; border: none"> @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1; font-family:Roboto" }) </button>
+                <button style="block-size: 50px; background-color: #564154; font-size: 18px; border: none">  @Html.ActionLink("Sobre Nosotros", "About", "Home", new { area = "" }, new { @style = "color: #779FA1; font-family:Roboto" }) </button>
+                <button style="block-size: 50px; background-color: #564154; font-size: 18px; border: none">  @Html.ActionLink("Gestión de Tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1; font-family:Roboto" }) </button>
+
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+    <div class="container body-content">
+
+           
+            <footer>
+               
+            </footer>
+        </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
