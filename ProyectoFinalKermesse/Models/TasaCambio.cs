@@ -11,7 +11,8 @@ namespace ProyectoFinalKermesse.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TasaCambio
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,6 +24,7 @@ namespace ProyectoFinalKermesse.Models
         public int idTasaCambio { get; set; }
         public int monedaO { get; set; }
         public int monedaC { get; set; }
+        [Display(Name="Mes")]
         public string mes { get; set; }
         public int anio { get; set; }
         public int estado { get; set; }

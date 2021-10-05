@@ -11,7 +11,8 @@ namespace ProyectoFinalKermesse.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -32,12 +33,19 @@ namespace ProyectoFinalKermesse.Models
             this.RolUsuario = new HashSet<RolUsuario>();
         }
     
+        [Display(Name="Id Usuario")]
         public int idUsuario { get; set; }
+        [Display(Name = "Nombre de Usuario")]
         public string userName { get; set; }
+        [Display(Name = "Contraseña")]
         public string pwd { get; set; }
+        [Display(Name = "Nombres")]
         public string nombres { get; set; }
+        [Display(Name ="Apellidos")]
         public string apellidos { get; set; }
+        [Display(Name ="Email")]
         public string email { get; set; }
+        [Display(Name = "Estado")]
         public int estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

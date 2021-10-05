@@ -11,7 +11,8 @@ namespace ProyectoFinalKermesse.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Kermesse
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +23,11 @@ namespace ProyectoFinalKermesse.Models
             this.IngresoComunidad = new HashSet<IngresoComunidad>();
             this.ListaPrecio = new HashSet<ListaPrecio>();
         }
-    
+        
+
         public int idKermesse { get; set; }
         public int parroquia { get; set; }
+        [Display(Name="Nombre Kermesse")]
         public string nombre { get; set; }
         public System.DateTime fInicio { get; set; }
         public System.DateTime fFinal { get; set; }

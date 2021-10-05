@@ -11,7 +11,8 @@ namespace ProyectoFinalKermesse.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Moneda
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,10 +23,14 @@ namespace ProyectoFinalKermesse.Models
             this.TasaCambio = new HashSet<TasaCambio>();
             this.TasaCambio1 = new HashSet<TasaCambio>();
         }
-    
+        
+        [Display(Name = "Id Moneda")]
         public int idMoneda { get; set; }
+        [Display(Name = "Nombre")]
         public string nombre { get; set; }
+        [Display(Name = "Símbolo")]
         public string simbolo { get; set; }
+        [Display(Name = "Estado")]
         public int estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -11,7 +11,8 @@ namespace ProyectoFinalKermesse.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class CategoriaProducto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,10 +20,14 @@ namespace ProyectoFinalKermesse.Models
         {
             this.Producto = new HashSet<Producto>();
         }
-    
+        
+        [Display(Name= "Id Categoría Producto")]
         public int idCatProd { get; set; }
+        [Display(Name = "Nombre de la Categoría")]
         public string nombre { get; set; }
+        [Display(Name = "Descripción")]
         public string descripcion { get; set; }
+        [Display(Name = "Estado")]
         public int estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

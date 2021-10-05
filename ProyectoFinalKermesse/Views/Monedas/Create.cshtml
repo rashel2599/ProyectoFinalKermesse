@@ -24,8 +24,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @*@Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })*@
-             <label for="nombre" class="form-label col-md-2"> Nombre </label>
+            @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
@@ -33,8 +32,7 @@
         </div>
 
         <div class="form-group">
-            @*@Html.LabelFor(model => model.simbolo, htmlAttributes: new { @class = "control-label col-md-2" })*@
-            <label for="nombre" class="form-label col-md-2"> Símbolo </label>
+            @Html.LabelFor(model => model.simbolo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.simbolo, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.simbolo, "", new { @class = "text-danger" })
@@ -42,8 +40,7 @@
         </div>
 
         <div class="form-group">
-            @*@Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })*@
-            <label for="nombre" class="form-label col-md-2"> Estado </label>
+            @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })

@@ -11,7 +11,8 @@ namespace ProyectoFinalKermesse.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Parroquia
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,12 +21,19 @@ namespace ProyectoFinalKermesse.Models
             this.Kermesse = new HashSet<Kermesse>();
         }
     
+        [Display(Name = "Id Parrroquia")]
         public int idParroquia { get; set; }
+        [Display(Name = "Nombre")]
         public string nombre { get; set; }
+        [Display(Name = "Dirección")]
         public string direccion { get; set; }
+        [Display(Name = "Teléfono")]
         public string telefono { get; set; }
+        [Display(Name = "Párroco")]
         public string parroco { get; set; }
+        [Display(Name = "Logo")]
         public string logo { get; set; }
+        [Display(Name = "Sitio Web")]
         public string sitioWeb { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
