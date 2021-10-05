@@ -27,10 +27,16 @@ namespace ProyectoFinalKermesse.Models
         [Display(Name = "Id Moneda")]
         public int idMoneda { get; set; }
         [Display(Name = "Nombre")]
+        [StringLength(45, ErrorMessage = "Longitud máxima 45")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
         public string nombre { get; set; }
         [Display(Name = "Símbolo")]
+        [StringLength(45, ErrorMessage = "Longitud máxima 45")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
         public string simbolo { get; set; }
         [Display(Name = "Estado")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+
         public int estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

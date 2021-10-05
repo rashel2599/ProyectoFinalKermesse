@@ -36,16 +36,38 @@ namespace ProyectoFinalKermesse.Models
         [Display(Name="Id Usuario")]
         public int idUsuario { get; set; }
         [Display(Name = "Nombre de Usuario")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(40, ErrorMessage = "Longitud máxima 40")]
+
+
         public string userName { get; set; }
         [Display(Name = "Contraseña")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(45, ErrorMessage = "Longitud máxima 45")]
+
+
         public string pwd { get; set; }
         [Display(Name = "Nombres")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(45, ErrorMessage = "Longitud máxima 45")]
+
+
         public string nombres { get; set; }
         [Display(Name ="Apellidos")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(45, ErrorMessage = "Longitud máxima 45")]
+
+
         public string apellidos { get; set; }
         [Display(Name ="Email")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(45, ErrorMessage = "Longitud máxima 45")]
+
+
         public string email { get; set; }
         [Display(Name = "Estado")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+
         public int estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -18,12 +18,16 @@ namespace ProyectoFinalKermesse.Models
         [Display(Name="Id Tasa Cambio")]
         public int idTasaCambioDet { get; set; }
         [Display(Name="Tasa Cambio")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
         public int tasaCambio { get; set; }
         [Display(Name = "Fecha")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
         public System.DateTime fecha { get; set; }
         [Display(Name = "Tipo Cambio")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
         public decimal tipoCambio { get; set; }
         [Display(Name = "Estado")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
         public int estado { get; set; }
     
         public virtual TasaCambio TasaCambio1 { get; set; }

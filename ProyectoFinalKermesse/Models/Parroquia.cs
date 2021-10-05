@@ -24,16 +24,40 @@ namespace ProyectoFinalKermesse.Models
         [Display(Name = "Id Parrroquia")]
         public int idParroquia { get; set; }
         [Display(Name = "Nombre")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(100, ErrorMessage = "Longitud máxima 100")]
+
+
         public string nombre { get; set; }
         [Display(Name = "Dirección")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(100, ErrorMessage = "Longitud máxima 100")]
+
+
         public string direccion { get; set; }
         [Display(Name = "Teléfono")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(15, ErrorMessage = "Longitud máxima 15")]
+
+
         public string telefono { get; set; }
         [Display(Name = "Párroco")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(100, ErrorMessage = "Longitud máxima 100")]
+
+
         public string parroco { get; set; }
         [Display(Name = "Logo")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(100, ErrorMessage = "Longitud máxima 100")]
+
+
         public string logo { get; set; }
         [Display(Name = "Sitio Web")]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(50, ErrorMessage = "Longitud máxima 50")]
+
+
         public string sitioWeb { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

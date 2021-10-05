@@ -22,14 +22,36 @@ namespace ProyectoFinalKermesse.Models
         }
         
         [Display(Name="Id Gasto")]
+        //[DataType(DataType.Currency)]
+
         public int idCatGasto { get; set; }
         [Display(Name = "Nombre de la Categoría")]
+        //[DataType(DataType.Text)]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(45, ErrorMessage = "Longitud máxima 45")]
+
+
+
         public string nombreCategoria { get; set; }
         [Display(Name = "Descripción")]
+        //[DataType(DataType.Text)]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+        [StringLength(100, ErrorMessage = "Longitud máxima 100")]
+
+
+
         public string descripcion { get; set; }
         [Display(Name = "Estado")]
+        //[DataType(DataType.Text)]
+        [Required(ErrorMessage = "Este campo es requerido.")]
+
+
+
         public int estado { get; set; }
-    
+
+
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Gasto> Gasto { get; set; }
     }
