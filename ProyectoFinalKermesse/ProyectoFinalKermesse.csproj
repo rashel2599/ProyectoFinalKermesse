@@ -138,6 +138,7 @@
     <Compile Include="Controllers\ParroquiasController.cs" />
     <Compile Include="Controllers\TasaCambioDetsController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Filters\VerificarSesion.cs" />
     <Compile Include="Models\ArqueoCaja.cs">
       <DependentUpon>Modelado.tt</DependentUpon>
     </Compile>
@@ -322,7 +323,8 @@
     <Content Include="Views\Opcions\Details.cshtml" />
     <Content Include="Views\Opcions\Edit.cshtml" />
     <Content Include="Views\Opcions\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
