@@ -1,7 +1,7 @@
 ﻿@model ProyectoFinalKermesse.Models.Opcion
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Detalles de Opcion";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -15,41 +15,45 @@
         <li class="active"> Detalles  </li>
     </ol>
 </div>
-<h2>Detalles</h2>
 
-<div>
+<div class="container">
+    <h2>Detalles</h2>
+    <h3>Opcion</h3>
 
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.opcionDescripcion)
-        </dt>
+    <div>
 
-
-        <dd>
-            @Html.DisplayFor(model => model.opcionDescripcion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
-
-    </dl>
-</div>
-<p>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.opcionDescripcion)
+            </dt>
 
 
-    <button class="btn-primary" style="background-color: #779FA1">
-        <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-        @Html.ActionLink("Regresar", "Index", "Opcions", new { @style = "color:white;" })
-    </button>
+            <dd>
+                @Html.DisplayFor(model => model.opcionDescripcion)
+            </dd>
 
-    <button type="submit" class="btn-primary" style="background-color: #779FA1">
-        <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-        @Html.ActionLink("Editar", "Edit", new { id = Model.idOpcion }, new { @style = "color:white;" })
-    </button>
-</p>
+            <dt>
+                @Html.DisplayNameFor(model => model.estado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.estado)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+
+
+        <button class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Regresar", "Index", "Opcions", new { @style = "color:white;" })
+        </button>
+
+        <button type="submit" class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idOpcion }, new { @style = "color:white;" })
+        </button>
+    </p>
+    </div> 

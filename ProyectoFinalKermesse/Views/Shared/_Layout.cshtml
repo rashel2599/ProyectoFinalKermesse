@@ -17,11 +17,14 @@
                 <button style="block-size: 50px; background-color: #564154; font-size: 18px; border: none"> @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1; font-family:Roboto" }) </button>
                 <button style="block-size: 50px; background-color: #564154; font-size: 18px; border: none">  @Html.ActionLink("Sobre Nosotros", "About", "Home", new { area = "" }, new { @style = "color: #779FA1; font-family:Roboto" }) </button>
                 <button style="block-size: 50px; background-color: #564154; font-size: 18px; border: none">  @Html.ActionLink("Gestión de Tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1; font-family:Roboto" }) </button>
-                <button style="block-size: 50px; background-color: #564154; font-size: 18px; border: none">  @Html.ActionLink("Cerrar Sesión", "CloseSesion", "Login", new { area = "" }, new { @style = "color: #779FA1; font-family:Roboto" }) </button>
+                <button style="block-size: 50px; background-color: #564154; font-size: 18px; border: thin; border-color: #FFFFFF; text-align:right">  @Html.ActionLink("Cerrar Sesión", "CloseSesion", "Login", new { area = "" }, new { @style = "color: #779FA1; font-family:Roboto" }) </button>
+                <span class="glyphicon glyphicon-log-out" aria-hidden="true" style="color:#779FA1"></span>
 
 
             </div>
-            <h3 style="text-align:right; font-family:'MS Outlook'; color: cyan">@Session["Usuario"]</h3>
+
+            <h3 style="text-align:right; right:100px; font-family:Roboto; color: #779FA1; font-size: 16px ">@Session["Usuario"]</h3>
+            
 
         </div>
     </div>

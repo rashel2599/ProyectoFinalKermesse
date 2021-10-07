@@ -23,67 +23,71 @@
 
 </div>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.direccion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telefono)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.parroco)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.logo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sitioWeb)
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
 
-    @foreach (var item in Model)
-    {
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.direccion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.parroco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.logo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.sitioWeb)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.idParroquia }, new { @style = "color: #779FA1" })
-                <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|
-                <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
-                @Html.ActionLink("Detalles", "Details", new { id = item.idParroquia }, new { @style = "color: #779FA1" }) |
-                <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.idParroquia }, new { @style = "color: #779FA1" })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.parroco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.logo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sitioWeb)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.parroco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.logo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sitioWeb)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idParroquia }, new { @style = "color: #779FA1" })
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idParroquia }, new { @style = "color: #779FA1" }) |
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idParroquia }, new { @style = "color: #779FA1" })
+                </td>
+            </tr>
+        }
 
-<hr />
-<p>
-    <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
-        @Html.ActionLink("Agregar nuevo", "Create", "CategoriaGastoes", new { @style = "color:white;" })
-        <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
-    </button>
-</p>
+    </table>
+
+    <hr />
+    <p>
+        <button type="button" class="btn-lg" style="border-block-color: #779FA1; background-color: #779FA1">
+            @Html.ActionLink("Agregar nuevo", "Create", "CategoriaGastoes", new { @style = "color:white;" })
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
+        </button>
+    </p>
+
+    </div> 

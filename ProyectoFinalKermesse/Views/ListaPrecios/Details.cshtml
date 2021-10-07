@@ -1,7 +1,7 @@
 ﻿@model ProyectoFinalKermesse.Models.ListaPrecio
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Detalles de Lista de Precios";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,56 +14,60 @@
         <li class="active"> Detalles  </li>
     </ol>
 </div>
-<h2>Detalles</h2>
 
-<div>
-   
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+<div class="container">
+    <h2>Detalles</h2>
+    <h3> Lista de Precios</h3>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+    <div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </dt>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.descripcion)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Kermesse1.nombre)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.estado)
 
-        <dd>
-            @Html.DisplayFor(model => model.Kermesse1.nombre)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.estado)
+            </dd>
 
-    </dl>
-</div>
+            <dt>
+                @Html.DisplayNameFor(model => model.Kermesse1.nombre)
+            </dt>
 
-<p>
+            <dd>
+                @Html.DisplayFor(model => model.Kermesse1.nombre)
+            </dd>
+
+        </dl>
+    </div>
+
+    <p>
 
 
-    <button class="btn-primary" style="background-color: #779FA1">
-        <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-        @Html.ActionLink("Regresar", "Index", "ListaPrecios", new { @style = "color:white;" })
-    </button>
+        <button class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Regresar", "Index", "ListaPrecios", new { @style = "color:white;" })
+        </button>
 
-    <button type="submit" class="btn-primary" style="background-color: #779FA1">
-        <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-        @Html.ActionLink("Editar", "Edit", new { id = Model.idListaPrecio}, new { @style = "color:white;" })
-    </button>
-</p>
+        <button type="submit" class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idListaPrecio }, new { @style = "color:white;" })
+        </button>
+    </p>
+    </div> 

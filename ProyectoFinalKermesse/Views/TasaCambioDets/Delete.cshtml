@@ -1,7 +1,7 @@
 ﻿@model ProyectoFinalKermesse.Models.TasaCambioDet
 
 @{
-    ViewBag.Title = "Eliminar";
+    ViewBag.Title = "Eliminar Detalle de Tasa de Cambio";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,62 +14,68 @@
         <li class="active"> Eliminar  </li>
     </ol>
 </div>
-<h2>Eliminar</h2>
 
-<h3>¿Esta seguro que desea eliminar esto?</h3>
 
-<div>
-    
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.fecha)
-        </dt>
+<div class="container">
+    <h2>Eliminar</h2>
+    <h3> Detalle de Tasa de Cambio </h3>
 
-        <dd>
-            @Html.DisplayFor(model => model.fecha)
-        </dd>
+    <h3>¿Esta seguro que desea eliminar esto?</h3>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipoCambio)
-        </dt>
+    <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipoCambio)
-        </dd>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.fecha)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.fecha)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.tipoCambio)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TasaCambio1.mes)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.tipoCambio)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TasaCambio1.mes)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.estado)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.estado)
+            </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+            <dt>
+                @Html.DisplayNameFor(model => model.TasaCambio1.mes)
+            </dt>
 
-       <div class="form-actions no-color">
-            <button class="btn-primary" style="background-color: #779FA1">
-            <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-            @Html.ActionLink("Regresar", "Index", "TasaCambioDets", new { @style = "color:white;" })
-        </button>
+            <dd>
+                @Html.DisplayFor(model => model.TasaCambio1.mes)
+            </dd>
 
-        <button type="submit" class="btn-primary" style="background-color: red">
-            <span class="glyphicon glyphicon-trash" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-            Eliminar
-        </button>
+        </dl>
 
-        </div>
-    }
-</div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <button class="btn-primary" style="background-color: #779FA1">
+                    <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+                    @Html.ActionLink("Regresar", "Index", "TasaCambioDets", new { @style = "color:white;" })
+                </button>
+
+                <button type="submit" class="btn-primary" style="background-color: red">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+                    Eliminar
+                </button>
+
+            </div>
+        }
+    </div>
+    </div> 

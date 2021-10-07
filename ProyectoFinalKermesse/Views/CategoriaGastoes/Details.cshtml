@@ -1,7 +1,7 @@
 ﻿@model ProyectoFinalKermesse.Models.CategoriaGasto
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Detalles de Categoria de Gastos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -15,48 +15,51 @@
     </ol>
 </div>
 
-<h2>Detalles</h2>
+<div class="container">
+    <h2>Detalles</h2>
+    <h3> Categoria de Gastos</h3>
 
-<div>
+    <div>
 
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombreCategoria)
-        </dt>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombreCategoria)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombreCategoria)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.nombreCategoria)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.descripcion)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.estado)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.estado)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    
+        </dl>
+    </div>
+    <p>
 
-    <button class="btn-primary" style="background-color: #779FA1">
-        <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-        @Html.ActionLink("Regresar", "Index", "CategoriaGastoes", new { @style = "color:white;" })
-    </button>
 
-    <button type="submit" class="btn-primary" style="background-color: #779FA1">
-        <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-        @Html.ActionLink("Editar", "Edit", new { id = Model.idCatGasto }, new { @style = "color:white;" })
-    </button>
-</p>
+        <button class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Regresar", "Index", "CategoriaGastoes", new { @style = "color:white;" })
+        </button>
+
+        <button type="submit" class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idCatGasto }, new { @style = "color:white;" })
+        </button>
+    </p>
+    </div>

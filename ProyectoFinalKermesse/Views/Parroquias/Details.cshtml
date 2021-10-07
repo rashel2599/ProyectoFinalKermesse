@@ -1,7 +1,7 @@
 ﻿@model ProyectoFinalKermesse.Models.Parroquia
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Detalles Parroquia ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,73 +14,76 @@
         <li class="active"> Detalles  </li>
     </ol>
 </div>
-<h2>Detalles</h2>
 
-<div>
-   
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+<div class="container">
+    <h2>Detalles</h2>
+    <h3>Parroquia </h3>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+    <div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.direccion)
-        </dt>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.direccion)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.telefono)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.direccion)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.telefono)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.parroco)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.parroco)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.logo)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.parroco)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.logo)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.parroco)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sitioWeb)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.logo)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sitioWeb)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.logo)
+            </dd>
 
-    </dl>
-</div>
+            <dt>
+                @Html.DisplayNameFor(model => model.sitioWeb)
+            </dt>
 
-<p>
+            <dd>
+                @Html.DisplayFor(model => model.sitioWeb)
+            </dd>
 
-    <button class="btn-primary" style="background-color: #779FA1">
-        <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-        @Html.ActionLink("Regresar", "Index", "Parroquias", new { @style = "color:white;" })
-    </button>
+        </dl>
+    </div>
 
-    <button type="submit" class="btn-primary" style="background-color: #779FA1">
-        <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-        @Html.ActionLink("Editar", "Edit", new { id = Model.idParroquia }, new { @style = "color:white;" })
-    </button>
-</p>
+    <p>
 
+        <button class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Regresar", "Index", "Parroquias", new { @style = "color:white;" })
+        </button>
+
+        <button type="submit" class="btn-primary" style="background-color: #779FA1">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.idParroquia }, new { @style = "color:white;" })
+        </button>
+    </p>
+    </div> 

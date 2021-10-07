@@ -1,7 +1,7 @@
 ﻿@model ProyectoFinalKermesse.Models.Moneda
 
 @{
-    ViewBag.Title = "Eliminar";
+    ViewBag.Title = "Eliminar Moneda";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -16,53 +16,57 @@
     </ol>
 </div>
 
-<h2>Eliminar</h2>
+<div class="container">
+    <h2>Eliminar</h2>
+    <h3>Moneda</h3>
 
-<h3>¿Esta seguro que desea eliminar esto?</h3>
-<div>
-    
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+    <h3>¿Esta seguro que desea eliminar esto?</h3>
+    <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.simbolo)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.simbolo)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.simbolo)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.simbolo)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.estado)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.estado)
+            </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        </dl>
 
-    <div class="form-actions no-color">
-        <button class="btn-primary" style="background-color: #779FA1">
-            <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-            @Html.ActionLink("Regresar", "Index", "Monedas", new { @style = "color:white;" })
-        </button>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <button type="submit" class="btn-primary" style="background-color: red">
-            <span class="glyphicon glyphicon-trash" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-            Eliminar
-        </button>
+            <div class="form-actions no-color">
+                <button class="btn-primary" style="background-color: #779FA1">
+                    <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+                    @Html.ActionLink("Regresar", "Index", "Monedas", new { @style = "color:white;" })
+                </button>
 
+                <button type="submit" class="btn-primary" style="background-color: red">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
+                    Eliminar
+                </button>
+
+            </div>
+        }
     </div>
-    }
-</div>
+    </div> 
