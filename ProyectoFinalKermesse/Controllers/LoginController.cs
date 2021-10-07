@@ -37,6 +37,8 @@ namespace ProyectoFinalKermesse.Controllers
                     }
 
                     Session["User"] = user;
+                    Session["Usuario"] = user.userName;
+
 
                 }
 

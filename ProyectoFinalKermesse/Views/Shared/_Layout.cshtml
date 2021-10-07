@@ -19,7 +19,10 @@
                 <button style="block-size: 50px; background-color: #564154; font-size: 18px; border: none">  @Html.ActionLink("Gestión de Tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1; font-family:Roboto" }) </button>
                 <button style="block-size: 50px; background-color: #564154; font-size: 18px; border: none">  @Html.ActionLink("Cerrar Sesión", "CloseSesion", "Login", new { area = "" }, new { @style = "color: #779FA1; font-family:Roboto" }) </button>
 
+
             </div>
+            <h3 style="text-align:right; font-family:'MS Outlook'; color: cyan">@Session["Usuario"]</h3>
+
         </div>
     </div>
     @RenderBody()
