@@ -23,19 +23,24 @@ namespace ProyectoFinalKermesse.Models
     
         [Display(Name = "Id Lista Precio")]
         public int idListaPrecio { get; set; }
+
         [Display(Name = "Kermesse")]
         public Nullable<int> kermesse { get; set; }
+
         [Display(Name = "Nombre")]
+        [DataType(DataType.Text, ErrorMessage = "Por favor ingrese un dato de tipo texto")]
         [StringLength(100, ErrorMessage = "Longitud máxima 100")]
         [Required(ErrorMessage = "Este campo es requerido.")]
         public string nombre { get; set; }
+
         [Display(Name = "Descripción")]
+        [DataType(DataType.MultilineText, ErrorMessage = "Por favor ingrese un dato de tipo texto")]
         [StringLength(100, ErrorMessage = "Longitud máxima 100")]
         [Required(ErrorMessage = "Este campo es requerido.")]
         public string descripcion { get; set; }
+
         [Display(Name = "Estado")]
         [Required(ErrorMessage = "Este campo es requerido.")]
-
         public int estado { get; set; }
     
         public virtual Kermesse Kermesse1 { get; set; }

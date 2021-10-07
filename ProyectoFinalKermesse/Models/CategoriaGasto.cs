@@ -22,31 +22,22 @@ namespace ProyectoFinalKermesse.Models
         }
         
         [Display(Name="Id Gasto")]
-        //[DataType(DataType.Currency)]
-
         public int idCatGasto { get; set; }
+
         [Display(Name = "Nombre de la Categoría")]
-        //[DataType(DataType.Text)]
+        [DataType(DataType.Text, ErrorMessage = "Por favor ingrese un dato de tipo texto")]
         [Required(ErrorMessage = "Este campo es requerido.")]
         [StringLength(45, ErrorMessage = "Longitud máxima 45")]
-
-
-
         public string nombreCategoria { get; set; }
+
         [Display(Name = "Descripción")]
-        //[DataType(DataType.Text)]
+        [DataType(DataType.MultilineText, ErrorMessage = "Por favor ingrese un dato de tipo texto")]
         [Required(ErrorMessage = "Este campo es requerido.")]
         [StringLength(100, ErrorMessage = "Longitud máxima 100")]
-
-
-
         public string descripcion { get; set; }
+
         [Display(Name = "Estado")]
-        //[DataType(DataType.Text)]
         [Required(ErrorMessage = "Este campo es requerido.")]
-
-
-
         public int estado { get; set; }
 
 

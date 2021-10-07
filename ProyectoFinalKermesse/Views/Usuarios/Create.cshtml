@@ -70,14 +70,14 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control", @Value = "1" } })
                     @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <button class="btn-primary" style="background-color: #779FA1">
                 <span class="glyphicon glyphicon-hand-left" aria-hidden="true" style="float: left; color: #FFFFFF"></span>
-                @Html.ActionLink("Regresar", "Index", "Usuarios", new { @style = "color:white;" })
+                @Html.ActionLink("Regresar", "Index", "Usuarios", new { @style = "color:white;"  })
             </button>
 
             <button type="submit" class="btn-primary" style="background-color: #779FA1">
