@@ -9,8 +9,8 @@
 
     <ol class="breadcrumb" style="background:none; font-size: 18px">
         <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li><a href="#">  @Html.ActionLink("Gestión de tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li><a href="#">  @Html.ActionLink("Tabla Lista de Precios", "Index", "ListaPrecios", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Lista de Precios", "Index", "ListaPrecios", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
         <li class="active"> Detalles  </li>
     </ol>
 </div>
@@ -39,20 +39,20 @@
                 @Html.DisplayFor(model => model.descripcion)
             </dd>
 
-            <dt>
+            @*<dt>
                 @Html.DisplayNameFor(model => model.estado)
 
             <dd>
                 @Html.DisplayFor(model => model.estado)
-            </dd>
+            </dd>*@
 
-            <dt>
+            @*<dt>
                 @Html.DisplayNameFor(model => model.Kermesse1.nombre)
             </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.Kermesse1.nombre)
-            </dd>
+            </dd>*@
 
         </dl>
     </div>

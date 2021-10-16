@@ -10,8 +10,8 @@
 
     <ol class="breadcrumb" style="background:none; font-size: 18px">
         <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li><a href="#">  @Html.ActionLink("Gestión de tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li class="active"> @Html.ActionLink("Tabla Detalle de Tasa de Cambio", "Index", "TasaCambioDets", new { area = "" }, new { @style = "color: #779FA1" })  </li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li class="active"> @Html.ActionLink("Detalle de Tasa de Cambio", "Index", "TasaCambioDets", new { area = "" }, new { @style = "color: #779FA1" })  </li>
     </ol>
 </div>
 
@@ -33,9 +33,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.tipoCambio)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.estado)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.TasaCambio1.mes)
 
@@ -52,9 +52,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.tipoCambio)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.estado)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.tasaCambio)
                 </td>

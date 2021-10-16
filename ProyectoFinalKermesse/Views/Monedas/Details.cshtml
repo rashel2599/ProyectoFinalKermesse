@@ -9,8 +9,8 @@
 
     <ol class="breadcrumb" style="background:none; font-size: 18px">
         <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li><a href="#">  @Html.ActionLink("Gestión de tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li><a href="#">  @Html.ActionLink("Tabla Moneda", "Index", "Monedas", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Monedas", "Index", "Monedas", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
         <li class="active"> Detalles  </li>
     </ol>
 </div>
@@ -39,13 +39,13 @@
                 @Html.DisplayFor(model => model.simbolo)
             </dd>
 
-            <dt>
+            @*<dt>
                 @Html.DisplayNameFor(model => model.estado)
             </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.estado)
-            </dd>
+            </dd>*@
 
         </dl>
     </div>

@@ -8,8 +8,8 @@
 
     <ol class="breadcrumb" style="background:none; font-size: 18px">
         <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li><a href="#">  @Html.ActionLink("Gestión de tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li><a href="#">  @Html.ActionLink("Tabla Usuario", "Index", "Usuarios", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
         
     </ol>
 </div>
@@ -40,9 +40,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.email)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.estado)
-            </th>
+            </th>*@
             <th></th>
         </tr>
 
@@ -64,9 +64,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.email)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.estado)
-                </td>
+                </td>*@
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.idUsuario }, new { @style = "color: #779FA1" })
                     <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|

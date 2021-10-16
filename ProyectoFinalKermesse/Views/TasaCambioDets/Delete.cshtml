@@ -9,8 +9,8 @@
 
     <ol class="breadcrumb" style="background:none; font-size: 18px">
         <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li><a href="#">  @Html.ActionLink("Gestión de tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li><a href="#">  @Html.ActionLink("Tabla Detalle de Tasa de Cambio", "Index", "TasaCambioDets", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Detalle de Tasa de Cambio", "Index", "TasaCambioDets", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
         <li class="active"> Eliminar  </li>
     </ol>
 </div>
@@ -42,13 +42,13 @@
                 @Html.DisplayFor(model => model.tipoCambio)
             </dd>
 
-            <dt>
+            @*<dt>
                 @Html.DisplayNameFor(model => model.estado)
             </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.estado)
-            </dd>
+            </dd>*@
 
             <dt>
                 @Html.DisplayNameFor(model => model.TasaCambio1.mes)

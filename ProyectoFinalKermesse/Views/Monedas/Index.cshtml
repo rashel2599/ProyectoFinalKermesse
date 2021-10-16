@@ -9,8 +9,8 @@
 
     <ol class="breadcrumb" style="background:none; font-size: 18px">
         <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li><a href="#">  @Html.ActionLink("Gestión de tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li><a href="#">  @Html.ActionLink("Tabla Moneda", "Index", "Monedas", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Monedas", "Index", "Monedas", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
   
     </ol>
 </div>
@@ -34,9 +34,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.simbolo)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.estado)
-            </th>
+            </th>*@
             <th></th>
         </tr>
 
@@ -49,9 +49,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.simbolo)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.estado)
-                </td>
+                </td>*@
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.idMoneda }, new { @style = "color: #779FA1" })
                     <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|

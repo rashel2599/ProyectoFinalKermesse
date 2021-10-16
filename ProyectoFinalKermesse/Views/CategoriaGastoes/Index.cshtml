@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ProyectoFinalKermesse.Models.CategoriaGasto>
 
 @{
-    ViewBag.Title = "Tabla Categorías de Gastos";
+    ViewBag.Title = "Categorías de Gastos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,8 +9,8 @@
 
     <ol class="breadcrumb" style="background:none; font-size: 18px">
         <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li><a href="#">  @Html.ActionLink("Gestión de tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li class="active"><a href="#">  @Html.ActionLink("Tabla Categoría de Gastos", "Index", "CategoriaGastoes", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
+        <li class="active"><a href="#">  @Html.ActionLink("Categoría de Gastos", "Index", "CategoriaGastoes", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
      
     </ol>
 </div>
@@ -34,9 +34,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.descripcion)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.estado)
-            </th>
+            </th>*@
             <th></th>
         </tr>
 
@@ -49,9 +49,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.descripcion)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.estado)
-                </td>
+                </td>*@
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.idCatGasto }, new { @style = "color: #779FA1" })
                     <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|

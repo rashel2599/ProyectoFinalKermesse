@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Gestion de Tablas";
+    ViewBag.Title = "Gestiones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,7 +8,7 @@
 
     <ol class="breadcrumb" style="background:none; font-size: 18px">
         <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-        <li class="active">  @Html.ActionLink("Gestión de tablas", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </li>
+        <li class="active">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </li>
     </ol>
 </div>
  
@@ -55,9 +55,9 @@
                             <h3>Arqueo de Caja</h3>
                             <p> En esta sección se encuentran todas las tablas relacionadas con el arqueo de caja</p>
 
-                            <p> @Html.ActionLink("Tabla Detalle de Tasa de Cambio", "Index", "TasaCambioDets", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                            <p> @Html.ActionLink("Tabla Moneda", "Index", "Monedas", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                            <p> @Html.ActionLink("Tabla Categoría de Gastos", "Index", "CategoriaGastoes", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p> @Html.ActionLink("Detalle de Tasa de Cambio", "Index", "TasaCambioDets", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p> @Html.ActionLink("Monedas", "Index", "Monedas", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p> @Html.ActionLink("Categoría de Gastos", "Index", "CategoriaGastoes", new { area = "" }, new { @style = "color: #779FA1" })</p>
 
                         </div>
                     </div>
@@ -75,9 +75,9 @@
                             <h3>Lista de Precios</h3>
                             <p> En esta sección se encuentran todas las tablas relacionadas con la lista de precios </p>
 
-                            <p>@Html.ActionLink("Tabla Lista de Precios", "Index", "ListaPrecios", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                            <p>@Html.ActionLink("Tabla Categoría de Productos", "Index", "CategoriaProductoes", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                            <p>@Html.ActionLink("Tabla Parroquia", "Index", "Parroquias", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p>@Html.ActionLink("Lista de Precios", "Index", "ListaPrecios", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p>@Html.ActionLink("Categoría de Productos", "Index", "CategoriaProductoes", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p>@Html.ActionLink("Parroquias", "Index", "Parroquias", new { area = "" }, new { @style = "color: #779FA1" })</p>
                         </div>
                     </div>
                 </div>
@@ -92,8 +92,8 @@
                         <div class="caption">
                             <h3>Gestión de Usuarios</h3>
                             <p> En esta sección se encuentran todas las tablas relacionadas con la gestión de usuarios </p>
-                            <p>@Html.ActionLink("Tabla Usuario", "Index", "Usuarios", new { area = "" }, new { @style = "color: #779FA1" })</p>
-                            <p>@Html.ActionLink("Tabla Opción", "Index", "Opcions", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @style = "color: #779FA1" })</p>
+                            <p>@Html.ActionLink("Opciones", "Index", "Opcions", new { area = "" }, new { @style = "color: #779FA1" })</p>
 
                         </div>
                     </div>
