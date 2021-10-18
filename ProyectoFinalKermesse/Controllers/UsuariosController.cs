@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Reporting.WebForms;
 using ProyectoFinalKermesse.Models;
 
 namespace ProyectoFinalKermesse.Controllers
@@ -19,6 +21,36 @@ namespace ProyectoFinalKermesse.Controllers
         {
             return View(db.Usuario.ToList());
         }
+
+        //Get: VerReportes
+
+        public ActionResult VerReporteUsuario(string tipo)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptUsuario.rdlc");
+
+            rpt.ReportPath = ruta;
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<Usuario> listaUsuario = new List<Usuario>();
+            listaUsuario = modelo.Usuario.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsUsuario", listaUsuario);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render(tipo, null, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
 
         // GET: Usuarios/Details/5
         public ActionResult Details(int? id)

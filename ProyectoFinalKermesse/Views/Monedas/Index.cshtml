@@ -25,6 +25,22 @@
 
 <div class="container">
 
+    <hr />
+    <div class="dropdown" style=" left: 1000px">
+        <button class="btn btn-default dropdown-toggle" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="float: left;  color: white"></span>
+            &nbsp;
+            Exportar a
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteMoneda", new { tipo = "PDF" })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteMoneda", new { tipo = "Excel" })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteMoneda", new { tipo = "Word" })</a></li>
+           
+        </ul>
+    </div>
+    <hr />
 
     <table class="table">
         <tr>
@@ -35,8 +51,8 @@
                 @Html.DisplayNameFor(model => model.simbolo)
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.estado)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.estado)
+                </th>*@
             <th></th>
         </tr>
 
@@ -50,8 +66,8 @@
                     @Html.DisplayFor(modelItem => item.simbolo)
                 </td>
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.estado)
-                </td>*@
+                        @Html.DisplayFor(modelItem => item.estado)
+                    </td>*@
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.idMoneda }, new { @style = "color: #779FA1" })
                     <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|
@@ -73,4 +89,4 @@
             <span class="glyphicon glyphicon-plus" aria-hidden="true" style="float: left;  color: white"></span>
         </button>
     </p>
-    </div> 
+</div> 

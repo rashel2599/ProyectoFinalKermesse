@@ -25,6 +25,23 @@
 
 <div class="container">
 
+    <hr />
+    <div class="dropdown" style=" left: 1000px">
+        <button class="btn btn-default dropdown-toggle" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-download-alt" aria-hidden="true" style="float: left;  color: white"></span>
+            &nbsp;
+            Exportar a
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteParroquia", new { tipo = "PDF" })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteParroquia", new { tipo = "Excel" })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteParroquia", new { tipo = "Word" })</a></li>
+
+        </ul>
+    </div>
+    <hr />
+
     <table class="table">
         <tr>
             <th>
@@ -90,4 +107,4 @@
         </button>
     </p>
 
-    </div> 
+</div> 

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Reporting.WebForms;
 using ProyectoFinalKermesse.Models;
 
 namespace ProyectoFinalKermesse.Controllers
@@ -20,8 +22,38 @@ namespace ProyectoFinalKermesse.Controllers
             return View(db.CategoriaProducto.ToList());
         }
 
-        // GET: CategoriaProductoes/Details/5
-        public ActionResult Details(int? id)
+        //Get: VerReportes
+
+        public ActionResult VerReporteCatProd(string tipo)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptCatProd.rdlc");
+
+            rpt.ReportPath = ruta;
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<CategoriaProducto> listaCatProd = new List<CategoriaProducto>();
+            listaCatProd = modelo.CategoriaProducto.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsCatProd", listaCatProd);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render(tipo, null, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+        }
+
+
+
+            // GET: CategoriaProductoes/Details/5
+            public ActionResult Details(int? id)
         {
             if (id == null)
             {

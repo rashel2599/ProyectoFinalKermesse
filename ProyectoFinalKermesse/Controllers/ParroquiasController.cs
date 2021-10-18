@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Reporting.WebForms;
 using ProyectoFinalKermesse.Models;
 
 namespace ProyectoFinalKermesse.Controllers
@@ -18,6 +20,34 @@ namespace ProyectoFinalKermesse.Controllers
         public ActionResult Index()
         {
             return View(db.Parroquia.ToList());
+        }
+
+        //Get: VerReportes
+
+        public ActionResult VerReporteParroquia(string tipo)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptParroquia.rdlc");
+
+            rpt.ReportPath = ruta;
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<Parroquia> listaParroquia = new List<Parroquia>();
+            listaParroquia = modelo.Parroquia.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsParroquia", listaParroquia);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render(tipo, null, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
         }
 
         // GET: Parroquias/Details/5
