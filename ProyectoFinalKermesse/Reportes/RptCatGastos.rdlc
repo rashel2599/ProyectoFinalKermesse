@@ -81,7 +81,7 @@
               <Width>6.17743cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>10.96638cm</Width>
+              <Width>9.93451cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -305,7 +305,7 @@
         <DataSetName>DsCategoriaGastos</DataSetName>
         <Left>0.88576cm</Left>
         <Height>1.86618cm</Height>
-        <Width>19.88313cm</Width>
+        <Width>18.85126cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
