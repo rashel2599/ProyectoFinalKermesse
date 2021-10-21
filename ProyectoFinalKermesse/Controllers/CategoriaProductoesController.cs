@@ -17,9 +17,18 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: CategoriaProductoes
-        public ActionResult Index()
+        public ActionResult Index(string valorBusq = "")
         {
-            return View(db.CategoriaProducto.ToList());
+            var categoriaProducto = from ca in db.CategoriaProducto select ca;
+
+            categoriaProducto = categoriaProducto.Where(ca => ca.estado.Equals(1) || ca.estado.Equals(2));
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                categoriaProducto = categoriaProducto.Where(ca => ca.nombre.Contains(valorBusq));
+            }
+
+            return View(categoriaProducto.ToList());
         }
 
         //Get: VerReportes
@@ -78,11 +87,16 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idCatProd,nombre,descripcion,estado")] CategoriaProducto categoriaProducto)
+        public ActionResult Create(CategoriaProducto categoriaProducto)
         {
             if (ModelState.IsValid)
             {
-                db.CategoriaProducto.Add(categoriaProducto);
+                var ca = new CategoriaProducto();
+                ca.nombre = categoriaProducto.nombre;
+                ca.descripcion = categoriaProducto.descripcion;
+                ca.estado = 1;
+
+                db.CategoriaProducto.Add(ca);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -110,11 +124,17 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idCatProd,nombre,descripcion,estado")] CategoriaProducto categoriaProducto)
+        public ActionResult Edit(CategoriaProducto categoriaProducto)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(categoriaProducto).State = EntityState.Modified;
+                var ca = new CategoriaProducto();
+                ca.idCatProd = categoriaProducto.idCatProd;
+                ca.nombre = categoriaProducto.nombre;
+                ca.descripcion = categoriaProducto.descripcion;
+                ca.estado = 2;
+
+                db.Entry(ca).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -142,7 +162,11 @@ namespace ProyectoFinalKermesse.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             CategoriaProducto categoriaProducto = db.CategoriaProducto.Find(id);
-            db.CategoriaProducto.Remove(categoriaProducto);
+            categoriaProducto.estado = 3;
+
+            db.Entry(categoriaProducto).State = EntityState.Modified;
+
+            //db.CategoriaProducto.Remove(categoriaProducto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

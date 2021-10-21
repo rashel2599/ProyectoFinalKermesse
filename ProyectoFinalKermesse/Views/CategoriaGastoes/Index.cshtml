@@ -5,13 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <div>
 
     <ol class="breadcrumb" style="background:none; font-size: 18px">
         <li><a href="#">  @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
         <li><a href="#">  @Html.ActionLink("Gestiones", "Index", "Gestion", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
         <li class="active"><a href="#">  @Html.ActionLink("Categoría de Gastos", "Index", "CategoriaGastoes", new { area = "" }, new { @style = "color: #779FA1" })  </a></li>
-     
+
     </ol>
 </div>
 
@@ -19,10 +20,21 @@
 <div class="carousel-inner" role="listbox">
     <div class="item active">
         <img src="~/fonts/BannersKermesse/6.png" alt="Banner 6">
-        
+
     </div>
 
 </div>
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <p>
+            Buscar por nombre: @Html.TextBox("valorBusq")
+            <input type="submit" value="Buscar" />
+        </p>
+    </div>
+   
+}
 
 <div class="container">
 
@@ -52,8 +64,8 @@
                 @Html.DisplayNameFor(model => model.descripcion)
             </th>
             @*<th>
-                    @Html.DisplayNameFor(model => model.estado)
-                </th>*@
+                @Html.DisplayNameFor(model => model.estado)
+            </th>*@
             <th></th>
         </tr>
 
@@ -67,8 +79,8 @@
                     @Html.DisplayFor(modelItem => item.descripcion)
                 </td>
                 @*<td>
-                        @Html.DisplayFor(modelItem => item.estado)
-                    </td>*@
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>*@
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.idCatGasto }, new { @style = "color: #779FA1" })
                     <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|
