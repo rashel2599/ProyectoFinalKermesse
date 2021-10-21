@@ -34,6 +34,16 @@ namespace ProyectoFinalKermesse.Controllers
             Warning[] w;
 
             string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptListaPrecio.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>8.5in</PageWidth>
+                      <PageHeight>11in</PageHeight>
+                      <MarginTop>0.25in</MarginTop>
+                      <MarginLeft>0.25in</MarginLeft>
+                      <MarginRight>0.25in</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0.25in</MarginBottom>
+                    </DeviceInfo>";
 
             rpt.ReportPath = ruta;
 
@@ -45,7 +55,7 @@ namespace ProyectoFinalKermesse.Controllers
             ReportDataSource rds = new ReportDataSource("DsListaPrecio", listaPrecio);
             rpt.DataSources.Add(rds);
 
-            byte[] b = rpt.Render(tipo, null, out mt, out enc, out f, out s, out w);
+            byte[] b = rpt.Render(tipo, deviceInfo, out mt, out enc, out f, out s, out w);
 
             return File(b, mt);
 
