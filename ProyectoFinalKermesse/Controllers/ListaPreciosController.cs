@@ -17,9 +17,19 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: ListaPrecios
-        public ActionResult Index()
+        public ActionResult Index(string valorBusq = "")
         {
-            var listaPrecio = db.ListaPrecio.Include(l => l.Kermesse1);
+            var listaPrecio = from lp in db.ListaPrecio select lp;
+            listaPrecio = db.ListaPrecio.Include(l => l.Kermesse1);
+            listaPrecio = listaPrecio.Where(lp => lp.estado.Equals(1) || lp.estado.Equals(2));
+            
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                listaPrecio = listaPrecio.Where(lp => lp.nombre.Contains(valorBusq));
+            }
+
+            
             return View(listaPrecio.ToList());
         }
 
@@ -90,11 +100,17 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idListaPrecio,kermesse,nombre,descripcion,estado")] ListaPrecio listaPrecio)
+        public ActionResult Create(ListaPrecio listaPrecio)
         {
             if (ModelState.IsValid)
             {
-                db.ListaPrecio.Add(listaPrecio);
+                var lp = new ListaPrecio();
+                lp.nombre = listaPrecio.nombre;
+                lp.descripcion = listaPrecio.descripcion;
+                lp.kermesse = listaPrecio.kermesse;
+                lp.estado = 1;
+
+                db.ListaPrecio.Add(lp);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -124,11 +140,18 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idListaPrecio,kermesse,nombre,descripcion,estado")] ListaPrecio listaPrecio)
+        public ActionResult Edit(ListaPrecio listaPrecio)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(listaPrecio).State = EntityState.Modified;
+                var lp = new ListaPrecio();
+                lp.idListaPrecio = listaPrecio.idListaPrecio;
+                lp.nombre = listaPrecio.nombre;
+                lp.descripcion = listaPrecio.descripcion;
+                lp.kermesse = listaPrecio.kermesse;
+                lp.estado = 2;
+
+                db.Entry(lp).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -157,7 +180,9 @@ namespace ProyectoFinalKermesse.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             ListaPrecio listaPrecio = db.ListaPrecio.Find(id);
-            db.ListaPrecio.Remove(listaPrecio);
+            listaPrecio.estado = 3;
+
+            db.Entry(listaPrecio).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

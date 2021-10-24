@@ -17,9 +17,19 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: Monedas
-        public ActionResult Index()
+        public ActionResult Index(string valorBusq = "")
         {
-            return View(db.Moneda.ToList());
+            var moneda = from m in db.Moneda select m;
+
+            moneda = moneda.Where(m => m.estado.Equals(2) || m.estado.Equals(1));
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                moneda = moneda.Where(m => m.nombre.Contains(valorBusq));
+            }
+
+
+            return View(moneda.ToList());
         }
 
         //Get: VerReportes
@@ -88,11 +98,16 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idMoneda,nombre,simbolo,estado")] Moneda moneda)
+        public ActionResult Create(Moneda moneda)
         {
             if (ModelState.IsValid)
             {
-                db.Moneda.Add(moneda);
+                var m = new Moneda();
+                m.nombre = moneda.nombre;
+                m.simbolo = moneda.simbolo;
+                m.estado = 1;
+
+                db.Moneda.Add(m);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -120,11 +135,17 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idMoneda,nombre,simbolo,estado")] Moneda moneda)
+        public ActionResult Edit(Moneda moneda)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(moneda).State = EntityState.Modified;
+                var m = new Moneda();
+                m.idMoneda = moneda.idMoneda;
+                m.nombre = moneda.nombre;
+                m.simbolo = moneda.simbolo;
+                m.estado = 2;
+
+                db.Entry(m).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -152,7 +173,9 @@ namespace ProyectoFinalKermesse.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Moneda moneda = db.Moneda.Find(id);
-            db.Moneda.Remove(moneda);
+            moneda.estado = 3;
+
+            db.Entry(moneda).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
