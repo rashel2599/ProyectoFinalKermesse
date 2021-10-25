@@ -15,10 +15,20 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: TasaCambioDets
-        public ActionResult Index()
+        public ActionResult Index(string valorB= "")
         {
             var tasaCambioDet = db.TasaCambioDet.Include(t => t.TasaCambio1);
-            return View(tasaCambioDet.ToList());
+
+            var tasadt = from tdt in db.TasaCambioDet select tdt;
+            tasadt = tasadt.Where(tdt => tdt.estado.Equals(2) || tdt.estado.Equals(1));
+
+            /*if (!string.IsNullOrEmpty(valorB))
+            {
+                tasadt = tasadt.Where(tdt => tdt.tasaCambio.Contains(valorB));
+            }*/
+
+
+            return View(tasadt.ToList());
         }
 
         // GET: TasaCambioDets/Details/5
@@ -48,11 +58,18 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idTasaCambioDet,tasaCambio,fecha,tipoCambio,estado")] TasaCambioDet tasaCambioDet)
+        public ActionResult Create(TasaCambioDet tasaCambioDet)
         {
             if (ModelState.IsValid)
             {
-                db.TasaCambioDet.Add(tasaCambioDet);
+                var tdt = new TasaCambioDet();
+                tdt.idTasaCambioDet = tasaCambioDet.idTasaCambioDet;
+                tdt.tasaCambio = tasaCambioDet.tasaCambio;
+                tdt.fecha = tasaCambioDet.fecha;
+                tdt.tipoCambio = tasaCambioDet.tipoCambio;
+                tdt.estado = 1;
+
+                db.TasaCambioDet.Add(tdt);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -82,11 +99,18 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idTasaCambioDet,tasaCambio,fecha,tipoCambio,estado")] TasaCambioDet tasaCambioDet)
+        public ActionResult Edit(TasaCambioDet tasaCambioDet)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tasaCambioDet).State = EntityState.Modified;
+                var tdt = new TasaCambioDet();
+                tdt.idTasaCambioDet = tasaCambioDet.idTasaCambioDet;
+                tdt.tasaCambio = tasaCambioDet.tasaCambio;
+                tdt.fecha = tasaCambioDet.fecha;
+                tdt.tipoCambio = tasaCambioDet.tipoCambio;
+                tdt.estado = 2;
+
+                db.Entry(tdt).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -114,7 +138,12 @@ namespace ProyectoFinalKermesse.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
+
             TasaCambioDet tasaCambioDet = db.TasaCambioDet.Find(id);
+            tasaCambioDet.estado = 3;
+
+
             db.TasaCambioDet.Remove(tasaCambioDet);
             db.SaveChanges();
             return RedirectToAction("Index");

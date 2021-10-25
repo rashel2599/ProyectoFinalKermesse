@@ -25,6 +25,19 @@
 </div>
 <div class="container">
 
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <p>
+                Buscar por Estado: @Html.TextBox("valorB")
+                <input type="submit" value="Buscar" style="background-color: #779FA1; color: #FFFFFF; font-weight:bold" />
+            </p>
+        </div>
+
+    }
+
     <table class="table">
         <tr>
             <th>
@@ -34,8 +47,8 @@
                 @Html.DisplayNameFor(model => model.tipoCambio)
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.estado)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.estado)
+                </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.TasaCambio1.mes)
 
@@ -53,8 +66,8 @@
                     @Html.DisplayFor(modelItem => item.tipoCambio)
                 </td>
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.estado)
-                </td>*@
+                        @Html.DisplayFor(modelItem => item.estado)
+                    </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.tasaCambio)
                 </td>
@@ -78,4 +91,4 @@
 
     </table>
 
-    </div> 
+</div> 

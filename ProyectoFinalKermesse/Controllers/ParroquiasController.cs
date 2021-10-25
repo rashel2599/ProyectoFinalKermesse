@@ -17,9 +17,16 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: Parroquias
-        public ActionResult Index()
+        public ActionResult Index(string valorB = "")
         {
-            return View(db.Parroquia.ToList());
+            var parroquia = from pa in db.Parroquia select pa;
+
+            if (!string.IsNullOrEmpty(valorB))
+            {
+                parroquia = parroquia.Where(pa => pa.nombre.Contains(valorB));
+            }
+
+            return View(parroquia.ToListAsync());
         }
 
         //Get: VerReportes

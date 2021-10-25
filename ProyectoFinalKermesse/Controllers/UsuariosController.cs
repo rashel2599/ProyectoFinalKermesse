@@ -17,9 +17,18 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: Usuarios
-        public ActionResult Index()
+        public ActionResult Index(string valorB = "")
         {
-            return View(db.Usuario.ToList());
+            var user = from us in db.Usuario select us;
+            user = user.Where(us => us.estado.Equals(2) || us.estado.Equals(1));
+
+            if (!string.IsNullOrEmpty(valorB))
+            {
+                user = user.Where(us => us.nombres.Contains(valorB));
+            }
+
+
+            return View(user.ToList());
         }
 
         //Get: VerReportes
@@ -88,11 +97,21 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idUsuario,userName,pwd,nombres,apellidos,email,estado")] Usuario usuario)
+        public ActionResult Create(Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                db.Usuario.Add(usuario);
+                var us = new Usuario();
+                us.idUsuario = usuario.idUsuario;
+                us.userName = usuario.userName;
+                us.pwd = usuario.pwd;
+                us.nombres = usuario.nombres;
+                us.apellidos = usuario.apellidos;
+                us.email = usuario.email;
+                us.estado = 1;
+
+
+                db.Usuario.Add(us);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -120,11 +139,20 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idUsuario,userName,pwd,nombres,apellidos,email,estado")] Usuario usuario)
+        public ActionResult Edit(Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usuario).State = EntityState.Modified;
+                var us = new Usuario();
+                us.idUsuario = usuario.idUsuario;
+                us.userName = usuario.userName;
+                us.pwd = usuario.pwd;
+                us.nombres = usuario.nombres;
+                us.apellidos = usuario.apellidos;
+                us.email = usuario.email;
+                us.estado = 2;
+
+                db.Entry(us).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -152,6 +180,8 @@ namespace ProyectoFinalKermesse.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Usuario usuario = db.Usuario.Find(id);
+            usuario.estado = 3;
+
             db.Usuario.Remove(usuario);
             db.SaveChanges();
             return RedirectToAction("Index");

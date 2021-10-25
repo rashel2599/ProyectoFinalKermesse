@@ -17,9 +17,18 @@ namespace ProyectoFinalKermesse.Controllers
         private BDKermesseEntities db = new BDKermesseEntities();
 
         // GET: Opcions
-        public ActionResult Index()
+        public ActionResult Index(string valorB= "")
         {
-            return View(db.Opcion.ToList());
+            var opciones = from op in db.Opcion select op;
+
+            opciones = opciones.Where(op => op.estado.Equals(2) || op.estado.Equals(1));
+
+            if (!string.IsNullOrEmpty(valorB))
+            {
+                opciones = opciones.Where(op => op.opcionDescripcion.Contains(valorB));
+            }
+
+            return View(opciones.ToList());
         }
 
         //Get: VerReportes
@@ -88,11 +97,15 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idOpcion,opcionDescripcion,estado")] Opcion opcion)
+        public ActionResult Create(Opcion opcion)
         {
             if (ModelState.IsValid)
             {
-                db.Opcion.Add(opcion);
+                var op = new Opcion();
+                op.opcionDescripcion = opcion.opcionDescripcion;
+                op.estado = 1;
+
+                db.Opcion.Add(op);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -120,11 +133,16 @@ namespace ProyectoFinalKermesse.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idOpcion,opcionDescripcion,estado")] Opcion opcion)
+        public ActionResult Edit(Opcion opcion)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(opcion).State = EntityState.Modified;
+                var op = new Opcion();
+                op.idOpcion = opcion.idOpcion;
+                op.opcionDescripcion = opcion.opcionDescripcion;
+                op.estado = 2;
+
+                db.Entry(op).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -152,6 +170,8 @@ namespace ProyectoFinalKermesse.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Opcion opcion = db.Opcion.Find(id);
+            opcion.estado = 3;
+
             db.Opcion.Remove(opcion);
             db.SaveChanges();
             return RedirectToAction("Index");
