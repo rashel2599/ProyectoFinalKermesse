@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.09748cm</Width>
+              <Width>0.07938cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -61,10 +61,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsParroquia</DataSetName>
-        <Top>0.88223cm</Top>
-        <Left>1.4181cm</Left>
+        <Top>0.10583cm</Top>
+        <Left>19.48472cm</Left>
         <Height>0.6cm</Height>
-        <Width>6.09748cm</Width>
+        <Width>0.07938cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -312,7 +312,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>idParroquia</rd:DefaultName>
@@ -504,7 +506,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsParroquia</DataSetName>
-        <Left>0.88576cm</Left>
+        <Top>0.10583cm</Top>
         <Height>1.86618cm</Height>
         <Width>19.56409cm</Width>
         <ZIndex>1</ZIndex>
@@ -515,7 +517,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.74861in</Height>
+    <Height>0.77638in</Height>
     <Style>
       <Border>
         <Style>None</Style>

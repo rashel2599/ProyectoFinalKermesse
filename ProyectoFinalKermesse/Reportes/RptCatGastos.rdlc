@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.09748cm</Width>
+              <Width>0.07938cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -15,7 +15,7 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox13">
+                    <Textbox Name="Textbox10">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -32,7 +32,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <rd:DefaultName>Textbox10</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -52,7 +52,11 @@
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
-            <TablixMember />
+            <TablixMember>
+              <Visibility>
+                <Hidden>true</Hidden>
+              </Visibility>
+            </TablixMember>
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -61,10 +65,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsCategoriaGastos</DataSetName>
-        <Top>0.88223cm</Top>
-        <Left>1.4181cm</Left>
+        <Top>1.40729cm</Top>
+        <Left>20.95411cm</Left>
         <Height>0.6cm</Height>
-        <Width>6.09748cm</Width>
+        <Width>0.07938cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -303,7 +307,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsCategoriaGastos</DataSetName>
-        <Left>0.88576cm</Left>
+        <Top>0.09703cm</Top>
+        <Left>0.01581cm</Left>
         <Height>1.86618cm</Height>
         <Width>18.85126cm</Width>
         <ZIndex>1</ZIndex>
@@ -314,14 +319,14 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.74861in</Height>
+    <Height>0.84236in</Height>
     <Style>
       <Border>
         <Style>None</Style>
       </Border>
     </Style>
   </Body>
-  <Width>8.2809in</Width>
+  <Width>8.43726in</Width>
   <Page>
     <PageHeader>
       <Height>3.41405cm</Height>
@@ -513,6 +518,40 @@
               <Style>
                 <Border>
                   <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox8">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value />
+                      <Style>
+                        <FontFamily>Roboto</FontFamily>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox8</rd:DefaultName>
+              <Top>1.70186cm</Top>
+              <Left>20.88538cm</Left>
+              <Height>0.6cm</Height>
+              <Width>0.07938cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Color>LightGrey</Color>
+                  <Style>Solid</Style>
                 </Border>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
