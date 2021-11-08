@@ -33,7 +33,7 @@ namespace ProyectoFinalKermesse.Controllers
 
         //Get: VerReportes
 
-        public ActionResult VerReporteUsuario(string tipo)
+        public ActionResult VerReporteUsuario(string tipo, string valorB = "")
         {
 
             LocalReport rpt = new LocalReport();
@@ -55,10 +55,18 @@ namespace ProyectoFinalKermesse.Controllers
 
             rpt.ReportPath = ruta;
 
+            var user = from us in db.Usuario select us;
+            user = user.Where(us => us.estado.Equals(2) || us.estado.Equals(1));
+
+            if (!string.IsNullOrEmpty(valorB))
+            {
+                user = user.Where(us => us.nombres.Contains(valorB));
+            }
+
             BDKermesseEntities modelo = new BDKermesseEntities();
 
             List<Usuario> listaUsuario = new List<Usuario>();
-            listaUsuario = modelo.Usuario.ToList();
+            listaUsuario =  user.ToList();
 
             ReportDataSource rds = new ReportDataSource("DsUsuario", listaUsuario);
             rpt.DataSources.Add(rds);
@@ -69,6 +77,51 @@ namespace ProyectoFinalKermesse.Controllers
 
 
         }
+
+        //Get: VerReportesDetalle
+
+        public ActionResult VerReporteUsuarioDetalle(int id)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            var user = from us in db.Usuario select us;
+            user = user.Where(us => us.idUsuario.Equals(id));
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptUsuarioDetalle.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>8.5in</PageWidth>
+                      <PageHeight>11in</PageHeight>
+                      <MarginTop>0.25in</MarginTop>
+                      <MarginLeft>0.25in</MarginLeft>
+                      <MarginRight>0.25in</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0.25in</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+         
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<Usuario> listaUsuario = new List<Usuario>();
+            listaUsuario = modelo.Usuario.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsUsuario", user.ToList() );
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
 
 
         // GET: Usuarios/Details/5

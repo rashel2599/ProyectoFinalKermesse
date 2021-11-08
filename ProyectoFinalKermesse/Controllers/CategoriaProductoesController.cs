@@ -33,7 +33,7 @@ namespace ProyectoFinalKermesse.Controllers
 
         //Get: VerReportes
 
-        public ActionResult VerReporteCatProd(string tipo)
+        public ActionResult VerReporteCatProd(string tipo, string valorBusq = "")
         {
 
             LocalReport rpt = new LocalReport();
@@ -56,10 +56,20 @@ namespace ProyectoFinalKermesse.Controllers
 
             rpt.ReportPath = ruta;
 
+            var categoriaProducto = from ca in db.CategoriaProducto select ca;
+
+            categoriaProducto = categoriaProducto.Where(ca => ca.estado.Equals(1) || ca.estado.Equals(2));
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                categoriaProducto = categoriaProducto.Where(ca => ca.nombre.Contains(valorBusq));
+            }
+
+
             BDKermesseEntities modelo = new BDKermesseEntities();
 
             List<CategoriaProducto> listaCatProd = new List<CategoriaProducto>();
-            listaCatProd = modelo.CategoriaProducto.ToList();
+            listaCatProd = categoriaProducto.ToList();
 
             ReportDataSource rds = new ReportDataSource("DsCatProd", listaCatProd);
             rpt.DataSources.Add(rds);
@@ -70,10 +80,54 @@ namespace ProyectoFinalKermesse.Controllers
 
         }
 
+        //Get: VerReportesDetalle
+
+        public ActionResult VerReporteCatProdDetalle(int id)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            var categoriaProducto = from ca in db.CategoriaProducto select ca;
+            categoriaProducto = categoriaProducto.Where(m => m.idCatProd.Equals(id));
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptCatProdDetalle.rdlc");
+
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>8.5in</PageWidth>
+                      <PageHeight>11in</PageHeight>
+                      <MarginTop>0.25in</MarginTop>
+                      <MarginLeft>0.25in</MarginLeft>
+                      <MarginRight>0.25in</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0.25in</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+       
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<CategoriaProducto> listaCatProd = new List<CategoriaProducto>();
+            listaCatProd = modelo.CategoriaProducto.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsCatProd", categoriaProducto.ToList());
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+        }
 
 
-            // GET: CategoriaProductoes/Details/5
-            public ActionResult Details(int? id)
+
+        // GET: CategoriaProductoes/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {

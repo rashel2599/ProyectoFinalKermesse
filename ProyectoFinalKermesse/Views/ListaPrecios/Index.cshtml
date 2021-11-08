@@ -45,9 +45,9 @@
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteListaPrecio", new { tipo = "PDF" })</a></li>
-                <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteListaPrecio", new { tipo = "Excel" })</a></li>
-                <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteListaPrecio", new { tipo = "Word" })</a></li>
+                <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteListaPrecio", new { tipo = "PDF" , valorBusq = Request.Form["ValorBusq"] })</a></li>
+                <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteListaPrecio", new { tipo = "Excel" , valorBusq = Request.Form["ValorBusq"] })</a></li>
+                <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteListaPrecio", new { tipo = "Word" , valorBusq = Request.Form["ValorBusq"] })</a></li>
 
             </ul>
         </div>
@@ -91,7 +91,9 @@
                         <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
                         @Html.ActionLink("Detalles", "Details", new { id = item.idListaPrecio }, new { @style = "color: #779FA1" }) |
                         <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
-                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idListaPrecio }, new { @style = "color: #779FA1" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.idListaPrecio }, new { @style = "color: #779FA1" })|
+                        <span class="glyphicon glyphicon-file" aria-hidden="true" style="color: #779FA1"></span>
+                        @Html.ActionLink("Ver Reporte", "VerReporteListaPrecioDetalle", new { id = item.idListaPrecio }, new { @style = "color: #779FA1" })
                     </td>
                 </tr>
             }

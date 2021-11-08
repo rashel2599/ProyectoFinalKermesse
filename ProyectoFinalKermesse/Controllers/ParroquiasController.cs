@@ -26,12 +26,12 @@ namespace ProyectoFinalKermesse.Controllers
                 parroquia = parroquia.Where(pa => pa.nombre.Contains(valorB));
             }
 
-            return View(parroquia.ToListAsync());
+            return View(parroquia.ToList());
         }
 
         //Get: VerReportes
 
-        public ActionResult VerReporteParroquia(string tipo)
+        public ActionResult VerReporteParroquia(string tipo, string valorB = "")
         {
 
             LocalReport rpt = new LocalReport();
@@ -42,21 +42,29 @@ namespace ProyectoFinalKermesse.Controllers
             string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptParroquia.rdlc");
             string deviceInfo = @"<DeviceInfo>
                       <OutputFormat>EMF</OutputFormat>
-                      <PageWidth>8.5in</PageWidth>
-                      <PageHeight>11in</PageHeight>
-                      <MarginTop>0.25in</MarginTop>
-                      <MarginLeft>0.25in</MarginLeft>
-                      <MarginRight>0.25in</MarginRight>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
                       <EmbedFonts>None</EmbedFonts>
-                      <MarginBottom>0.25in</MarginBottom>
+                      <MarginBottom>0cm</MarginBottom>
                     </DeviceInfo>";
 
             rpt.ReportPath = ruta;
 
+            var parroquia = from pa in db.Parroquia select pa;
+
+            if (!string.IsNullOrEmpty(valorB))
+            {
+                parroquia = parroquia.Where(pa => pa.nombre.Contains(valorB));
+            }
+
+
             BDKermesseEntities modelo = new BDKermesseEntities();
 
             List<Parroquia> listaParroquia = new List<Parroquia>();
-            listaParroquia = modelo.Parroquia.ToList();
+            listaParroquia = parroquia.ToList();
 
             ReportDataSource rds = new ReportDataSource("DsParroquia", listaParroquia);
             rpt.DataSources.Add(rds);
@@ -66,6 +74,50 @@ namespace ProyectoFinalKermesse.Controllers
             return File(b, mt);
 
         }
+
+        //Get: VerReportesDetalle
+
+        public ActionResult VerReporteParroquiaDetalle(int id)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            var parroquia = from pa in db.Parroquia select pa;
+            parroquia = parroquia.Where(pa => pa.idParroquia.Equals(id));
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptParroquiaDetalle.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<Parroquia> listaParroquia = new List<Parroquia>();
+            listaParroquia = modelo.Parroquia.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsParroquia", parroquia.ToList());
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+        }
+
 
         // GET: Parroquias/Details/5
         public ActionResult Details(int? id)

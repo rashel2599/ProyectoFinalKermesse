@@ -6,13 +6,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.09748cm</Width>
+              <Width>6.14158cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>7.47333cm</Width>
+              <Width>7.51743cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.73248cm</Width>
+              <Width>6.77658cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -242,7 +242,7 @@
         </TablixRowHierarchy>
         <DataSetName>DsMoneda</DataSetName>
         <Height>1.2cm</Height>
-        <Width>20.30329cm</Width>
+        <Width>20.43558cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -250,14 +250,14 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.63911in</Height>
+    <Height>0.69119in</Height>
     <Style>
       <Border>
         <Style>None</Style>
       </Border>
     </Style>
   </Body>
-  <Width>8.31634in</Width>
+  <Width>8.45176in</Width>
   <Page>
     <PageHeader>
       <Height>3.05245cm</Height>
@@ -267,7 +267,6 @@
         <Rectangle Name="Rectangle3">
           <ReportItems>
             <Textbox Name="Textbox9">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -303,7 +302,6 @@
               </Style>
             </Textbox>
             <Textbox Name="Textbox6">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -341,9 +339,9 @@
               </Style>
             </Textbox>
           </ReportItems>
-          <KeepTogether>true</KeepTogether>
+          <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
           <Height>3.05245cm</Height>
-          <Width>21.1235cm</Width>
+          <Width>21.46746cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -359,14 +357,13 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.32021cm</Height>
+      <Height>3cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Rectangle Name="Rectangle4">
           <ReportItems>
             <Textbox Name="PageNumber">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -402,7 +399,8 @@
               <Source>Embedded</Source>
               <Value>Logo</Value>
               <Sizing>Fit</Sizing>
-              <Top>0.34396cm</Top>
+              <Top>0.34395cm</Top>
+              <Left>0.66146cm</Left>
               <Height>1.97625cm</Height>
               <Width>3.29917cm</Width>
               <ZIndex>1</ZIndex>
@@ -413,7 +411,6 @@
               </Style>
             </Image>
             <Textbox Name="Textbox12">
-              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -441,8 +438,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox12</rd:DefaultName>
-              <Top>1.59167cm</Top>
-              <Left>0.86995cm</Left>
+              <Top>1.59166cm</Top>
+              <Left>1.37266cm</Left>
               <Height>0.72854cm</Height>
               <Width>7.47417cm</Width>
               <ZIndex>2</ZIndex>
@@ -457,10 +454,9 @@
               </Style>
             </Textbox>
           </ReportItems>
-          <KeepTogether>true</KeepTogether>
-          <Top>0cm</Top>
-          <Height>2.32021cm</Height>
-          <Width>21.1235cm</Width>
+          <OmitBorderOnPageBreak>true</OmitBorderOnPageBreak>
+          <Height>2.95521cm</Height>
+          <Width>21.46746cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -475,8 +471,8 @@
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeight>27.94cm</PageHeight>
+    <PageWidth>21.59cm</PageWidth>
     <LeftMargin>0cm</LeftMargin>
     <RightMargin>0cm</RightMargin>
     <TopMargin>0cm</TopMargin>

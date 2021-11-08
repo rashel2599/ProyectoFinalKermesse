@@ -44,9 +44,9 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteMoneda", new { tipo = "PDF" })</a></li>
-            <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteMoneda", new { tipo = "Excel" })</a></li>
-            <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteMoneda", new { tipo = "Word" })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a PDF", "VerReporteMoneda", new { tipo = "PDF", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Excel", "VerReporteMoneda", new { tipo = "Excel", valorBusq = Request.Form["ValorBusq"] })</a></li>
+            <li><a href="#">@Html.ActionLink("Exportar a Word", "VerReporteMoneda", new { tipo = "Word", valorBusq = Request.Form["ValorBusq"] })</a></li>
 
         </ul>
     </div>
@@ -78,14 +78,16 @@
                 @*<td>
                         @Html.DisplayFor(modelItem => item.estado)
                     </td>*@
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idMoneda }, new { @style = "color: #779FA1" })
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|
-                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
-                    @Html.ActionLink("Detalles", "Details", new { id = item.idMoneda }, new { @style = "color: #779FA1" }) |
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idMoneda }, new { @style = "color: #779FA1" })
-                </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idMoneda }, new { @style = "color: #779FA1" })
+                <span class="glyphicon glyphicon-edit" aria-hidden="true" style="float: left; color: #779FA1"></span>|
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true" style="color: #779FA1"></span>
+                @Html.ActionLink("Detalles", "Details", new { id = item.idMoneda }, new { @style = "color: #779FA1" }) |
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: #779FA1"></span>
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idMoneda }, new { @style = "color: #779FA1" }) |
+                <span class="glyphicon glyphicon-file" aria-hidden="true" style="color: #779FA1"></span>
+                @Html.ActionLink("Ver Reporte", "VerReporteMonedaDetalle", new { id = item.idMoneda }, new { @style = "color: #779FA1" })
+            </td>
             </tr>
         }
 

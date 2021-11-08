@@ -34,7 +34,7 @@ namespace ProyectoFinalKermesse.Controllers
 
         //Get: VerReportes
 
-        public ActionResult VerReporteMoneda(string tipo)
+        public ActionResult VerReporteMoneda(string tipo, string valorBusq = "")
         {
 
             LocalReport rpt = new LocalReport();
@@ -45,26 +45,80 @@ namespace ProyectoFinalKermesse.Controllers
             string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptMoneda.rdlc");
             string deviceInfo = @"<DeviceInfo>
                       <OutputFormat>EMF</OutputFormat>
-                      <PageWidth>8.5in</PageWidth>
-                      <PageHeight>11in</PageHeight>
-                      <MarginTop>0.25in</MarginTop>
-                      <MarginLeft>0.25in</MarginLeft>
-                      <MarginRight>0.25in</MarginRight>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
                       <EmbedFonts>None</EmbedFonts>
-                      <MarginBottom>0.25in</MarginBottom>
+                      <MarginBottom>0cm</MarginBottom>
                     </DeviceInfo>";
 
             rpt.ReportPath = ruta;
+
+            var moneda = from m in db.Moneda select m;
+
+            moneda = moneda.Where(m => m.estado.Equals(2) || m.estado.Equals(1));
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                moneda = moneda.Where(m => m.nombre.Contains(valorBusq));
+            }
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<Moneda> listaMon = new List<Moneda>();
+            listaMon = moneda.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsMoneda", listaMon);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render(tipo, deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
+        //Get: VerReportesDetalle
+
+        public ActionResult VerReporteMonedaDetalle(int id)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            var moneda = from m in db.Moneda select m;
+            moneda = moneda.Where(m => m.idMoneda.Equals(id)); 
+
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptMonedaDetalle.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
 
             BDKermesseEntities modelo = new BDKermesseEntities();
 
             List<Moneda> listaMon = new List<Moneda>();
             listaMon = modelo.Moneda.ToList();
 
-            ReportDataSource rds = new ReportDataSource("DsMoneda", listaMon);
+            ReportDataSource rds = new ReportDataSource("DsMoneda", moneda.ToList() );
             rpt.DataSources.Add(rds);
 
-            byte[] b = rpt.Render(tipo, deviceInfo, out mt, out enc, out f, out s, out w);
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
 
             return File(b, mt);
 

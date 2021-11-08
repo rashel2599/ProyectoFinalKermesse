@@ -35,7 +35,7 @@ namespace ProyectoFinalKermesse.Controllers
 
         //Get: VerReportes
 
-        public ActionResult VerReporteListaPrecio(string tipo)
+        public ActionResult VerReporteListaPrecio(string tipo, string valorBusq = "")
         {
 
             LocalReport rpt = new LocalReport();
@@ -57,15 +57,71 @@ namespace ProyectoFinalKermesse.Controllers
 
             rpt.ReportPath = ruta;
 
+            var listaPrecio = from lp in db.ListaPrecio select lp;
+            listaPrecio = db.ListaPrecio.Include(l => l.Kermesse1);
+            listaPrecio = listaPrecio.Where(lp => lp.estado.Equals(1) || lp.estado.Equals(2));
+
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                listaPrecio = listaPrecio.Where(lp => lp.nombre.Contains(valorBusq));
+            }
+
+
             BDKermesseEntities modelo = new BDKermesseEntities();
 
-            List<ListaPrecio> listaPrecio = new List<ListaPrecio>();
-            listaPrecio = modelo.ListaPrecio.ToList();
+            List<ListaPrecio> ListaPrecio = new List<ListaPrecio>();
+            ListaPrecio = listaPrecio.ToList();
 
             ReportDataSource rds = new ReportDataSource("DsListaPrecio", listaPrecio);
             rpt.DataSources.Add(rds);
 
             byte[] b = rpt.Render(tipo, deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
+        //Get: VerReportesDetalle
+
+        public ActionResult VerReporteListaPrecioDetalle(int id)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptListaPrecioDetalle.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>8.5in</PageWidth>
+                      <PageHeight>11in</PageHeight>
+                      <MarginTop>0.25in</MarginTop>
+                      <MarginLeft>0.25in</MarginLeft>
+                      <MarginRight>0.25in</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0.25in</MarginBottom>
+                    </DeviceInfo>";
+
+            rpt.ReportPath = ruta;
+
+            var listaPrecio = from lp in db.ListaPrecio select lp;
+            listaPrecio = listaPrecio.Where(lp => lp.idListaPrecio.Equals(id));
+
+
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<ListaPrecio> ListaPrecio = new List<ListaPrecio>();
+            ListaPrecio = modelo.ListaPrecio.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsListaPrecio", listaPrecio.ToList());
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
 
             return File(b, mt);
 

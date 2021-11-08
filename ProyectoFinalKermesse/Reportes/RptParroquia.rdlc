@@ -506,7 +506,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DsParroquia</DataSetName>
-        <Top>0.10583cm</Top>
+        <Top>0.14111cm</Top>
+        <Left>0.31899cm</Left>
         <Height>1.86618cm</Height>
         <Width>19.56409cm</Width>
         <ZIndex>1</ZIndex>
@@ -517,14 +518,14 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.77638in</Height>
+    <Height>20cm</Height>
     <Style>
       <Border>
         <Style>None</Style>
       </Border>
     </Style>
   </Body>
-  <Width>8.2809in</Width>
+  <Width>21.03348cm</Width>
   <Page>
     <PageHeader>
       <Height>3.41405cm</Height>
@@ -626,7 +627,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.32021cm</Height>
+      <Height>2.5848cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -651,8 +652,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>PageNumber</rd:DefaultName>
-              <Top>1.48208cm</Top>
-              <Left>15.766cm</Left>
+              <Top>1.13813cm</Top>
+              <Left>15.59307cm</Left>
               <Height>0.83812cm</Height>
               <Width>3.95521cm</Width>
               <Style>
@@ -669,7 +670,7 @@
               <Source>Embedded</Source>
               <Value>Logo</Value>
               <Sizing>Fit</Sizing>
-              <Top>0.34396cm</Top>
+              <Left>0.42333cm</Left>
               <Height>1.97625cm</Height>
               <Width>3.29917cm</Width>
               <ZIndex>1</ZIndex>
@@ -708,8 +709,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox12</rd:DefaultName>
-              <Top>1.59167cm</Top>
-              <Left>0.86995cm</Left>
+              <Top>1.24771cm</Top>
+              <Left>1.29328cm</Left>
               <Height>0.72854cm</Height>
               <Width>7.47417cm</Width>
               <ZIndex>2</ZIndex>
@@ -726,7 +727,7 @@
           </ReportItems>
           <KeepTogether>true</KeepTogether>
           <Left>0.01581cm</Left>
-          <Height>2.32021cm</Height>
+          <Height>2.58479cm</Height>
           <Width>21.01767cm</Width>
           <Style>
             <Border>
@@ -742,8 +743,8 @@
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeight>27.94cm</PageHeight>
+    <PageWidth>21.59cm</PageWidth>
     <LeftMargin>0cm</LeftMargin>
     <RightMargin>0cm</RightMargin>
     <TopMargin>0cm</TopMargin>

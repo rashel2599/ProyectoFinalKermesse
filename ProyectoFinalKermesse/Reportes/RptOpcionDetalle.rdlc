@@ -2,99 +2,23 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Tablix Name="Tablix1">
-        <TablixBody>
-          <TablixColumns>
-            <TablixColumn>
-              <Width>0.07938cm</Width>
-            </TablixColumn>
-          </TablixColumns>
-          <TablixRows>
-            <TablixRow>
-              <Height>0.6cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox10">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Roboto</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox10</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-          </TablixRows>
-        </TablixBody>
-        <TablixColumnHierarchy>
-          <TablixMembers>
-            <TablixMember>
-              <Visibility>
-                <Hidden>true</Hidden>
-              </Visibility>
-            </TablixMember>
-          </TablixMembers>
-        </TablixColumnHierarchy>
-        <TablixRowHierarchy>
-          <TablixMembers>
-            <TablixMember />
-          </TablixMembers>
-        </TablixRowHierarchy>
-        <DataSetName>DsCategoriaGastos</DataSetName>
-        <Top>1.40729cm</Top>
-        <Left>20.95411cm</Left>
-        <Height>0.6cm</Height>
-        <Width>0.07938cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Tablix>
       <Tablix Name="Tablix2">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.73932cm</Width>
+              <Width>10.12579cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.17743cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>9.93451cm</Width>
+              <Width>9.06626cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.93309cm</Height>
+              <Height>1.99142cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox2">
+                    <Textbox Name="idOpcion">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -103,14 +27,17 @@
                             <TextRun>
                               <Value>ID</Value>
                               <Style>
+                                <FontSize>20pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <rd:DefaultName>idOpcion</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -126,57 +53,25 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox4">
+                    <Textbox Name="idOpcion1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nombre de la categoría </Value>
+                              <Value>=Fields!idOpcion.Value</Value>
                               <Style>
-                                <FontFamily>Roboto </FontFamily>
-                                <FontWeight>Bold</FontWeight>
+                                <FontSize>20pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox4</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox6">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Descripción</Value>
-                              <Style>
-                                <FontFamily>Roboto</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <rd:DefaultName>idOpcion1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -193,25 +88,30 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.93309cm</Height>
+              <Height>1.65833cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="idCatGasto">
+                    <Textbox Name="Textbox1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!idCatGasto.Value</Value>
-                              <Style />
+                              <Value>Descripción </Value>
+                              <Style>
+                                <FontSize>20pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>idCatGasto</rd:DefaultName>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -227,51 +127,25 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="nombreCategoria">
+                    <Textbox Name="opcionDescripcion">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!nombreCategoria.Value</Value>
-                              <Style />
+                              <Value>=Fields!opcionDescripcion.Value</Value>
+                              <Style>
+                                <FontSize>20pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>nombreCategoria</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="descripcion">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!descripcion.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>descripcion</rd:DefaultName>
+                      <rd:DefaultName>opcionDescripcion</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -293,25 +167,24 @@
           <TablixMembers>
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-            </TablixMember>
-            <TablixMember>
               <Group Name="Detalles" />
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DsCategoriaGastos</DataSetName>
-        <Top>0.17639cm</Top>
-        <Left>0.33332cm</Left>
-        <Height>1.86618cm</Height>
-        <Width>18.85126cm</Width>
-        <ZIndex>1</ZIndex>
+        <DataSetName>DsOpcion</DataSetName>
+        <Top>0.78493cm</Top>
+        <Left>0.54498cm</Left>
+        <Height>3.64976cm</Height>
+        <Width>19.19204cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -319,17 +192,17 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>20cm</Height>
+    <Height>2.28333in</Height>
     <Style>
       <Border>
         <Style>None</Style>
       </Border>
     </Style>
   </Body>
-  <Width>21.03349cm</Width>
+  <Width>8.74546in</Width>
   <Page>
     <PageHeader>
-      <Height>3.41405cm</Height>
+      <Height>3.55516cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -342,7 +215,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Lista de Categoría de Gastos</Value>
+                      <Value>Lista de Opciones</Value>
                       <Style>
                         <FontFamily>Roboto</FontFamily>
                         <FontSize>20pt</FontSize>
@@ -411,8 +284,9 @@
             </Textbox>
           </ReportItems>
           <KeepTogether>true</KeepTogether>
+          <Left>0.01581cm</Left>
           <Height>3.41405cm</Height>
-          <Width>21.03348cm</Width>
+          <Width>21.05994cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -428,7 +302,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>3.79305cm</Height>
+      <Height>3.24627cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -453,7 +327,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>PageNumber</rd:DefaultName>
-              <Top>1.13813cm</Top>
+              <Top>1.48208cm</Top>
               <Left>15.766cm</Left>
               <Height>0.83812cm</Height>
               <Width>3.95521cm</Width>
@@ -471,7 +345,7 @@
               <Source>Embedded</Source>
               <Value>Logo</Value>
               <Sizing>Fit</Sizing>
-              <Left>0.86995cm</Left>
+              <Top>0.34396cm</Top>
               <Height>1.97625cm</Height>
               <Width>3.29917cm</Width>
               <ZIndex>1</ZIndex>
@@ -510,8 +384,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox12</rd:DefaultName>
-              <Top>1.24771cm</Top>
-              <Left>1.95474cm</Left>
+              <Top>1.59167cm</Top>
+              <Left>0.86995cm</Left>
               <Height>0.72854cm</Height>
               <Width>7.47417cm</Width>
               <ZIndex>2</ZIndex>
@@ -525,45 +399,10 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox8">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value />
-                      <Style>
-                        <FontFamily>Roboto</FontFamily>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox8</rd:DefaultName>
-              <Top>1.37625cm</Top>
-              <Left>20.54142cm</Left>
-              <Height>0.6cm</Height>
-              <Width>0.07938cm</Width>
-              <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Color>LightGrey</Color>
-                  <Style>Solid</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
           </ReportItems>
           <KeepTogether>true</KeepTogether>
-          <Top>0.07056cm</Top>
-          <Left>0.01582cm</Left>
-          <Height>3.55493cm</Height>
+          <Left>0.01581cm</Left>
+          <Height>2.42604cm</Height>
           <Width>21.01767cm</Width>
           <Style>
             <Border>
@@ -579,8 +418,8 @@
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>27.94cm</PageHeight>
-    <PageWidth>21.59cm</PageWidth>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
     <LeftMargin>0cm</LeftMargin>
     <RightMargin>0cm</RightMargin>
     <TopMargin>0cm</TopMargin>
@@ -599,22 +438,18 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DsCategoriaGastos">
+    <DataSet Name="DsOpcion">
       <Query>
         <DataSourceName>DsReportes</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="idCatGasto">
-          <DataField>idCatGasto</DataField>
+        <Field Name="idOpcion">
+          <DataField>idOpcion</DataField>
           <rd:TypeName>System.Int16</rd:TypeName>
         </Field>
-        <Field Name="nombreCategoria">
-          <DataField>nombreCategoria</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="descripcion">
-          <DataField>descripcion</DataField>
+        <Field Name="opcionDescripcion">
+          <DataField>opcionDescripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="estado">
@@ -625,7 +460,7 @@
       <rd:DataSetInfo>
         <rd:DataSetName>DsReportes</rd:DataSetName>
         <rd:SchemaPath>C:\IAW\ProyectoFinalKermesse\ProyectoFinalKermesse\DataSet\DsReportes.xsd</rd:SchemaPath>
-        <rd:TableName>CategoriaGastos</rd:TableName>
+        <rd:TableName>Opcion</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />

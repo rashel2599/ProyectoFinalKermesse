@@ -383,6 +383,13 @@
     <Content Include="Views\ListaPrecios\VerReporteListaPrecio.cshtml" />
     <Content Include="Views\Opcions\VerReporteOpcion.cshtml" />
     <Content Include="Views\Usuarios\VerReporteUsuario.cshtml" />
+    <Content Include="Views\Monedas\VerReporteMonedaDetalle.cshtml" />
+    <Content Include="Views\CategoriaGastoes\VerReporteCatGastoDetalle.cshtml" />
+    <Content Include="Views\CategoriaProductoes\VerReporteCatProdDetalle.cshtml" />
+    <Content Include="Views\ListaPrecios\VerReporteListaPrecioDetalle.cshtml" />
+    <Content Include="Views\Opcions\VerReporteOpcionDetalle.cshtml" />
+    <Content Include="Views\Parroquias\VerReporteParroquiaDetalle.cshtml" />
+    <Content Include="Views\Usuarios\VerReporteUsuarioDetalle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -404,6 +411,13 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reportes\RptCatGastosDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptCatProdDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptListaPrecioDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptMonedaDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptOpcionDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptParroquiaDetalle.rdlc" />
+    <EmbeddedResource Include="Reportes\RptUsuarioDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\RptUsuario.rdlc" />
     <EmbeddedResource Include="Reportes\RptOpcion.rdlc" />
     <EmbeddedResource Include="Reportes\RptListaPrecio.rdlc" />

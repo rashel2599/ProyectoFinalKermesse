@@ -34,7 +34,7 @@ namespace ProyectoFinalKermesse.Controllers
 
         //Get: VerReportes
 
-        public ActionResult VerReporteCatGasto(string tipo)
+        public ActionResult VerReporteCatGasto(string tipo, string valorBusq = "")
         {
 
             LocalReport rpt = new LocalReport();
@@ -45,26 +45,77 @@ namespace ProyectoFinalKermesse.Controllers
             string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptCatGastos.rdlc");
             string deviceInfo = @"<DeviceInfo>
                       <OutputFormat>EMF</OutputFormat>
-                      <PageWidth>8.5in</PageWidth>
-                      <PageHeight>11in</PageHeight>
-                      <MarginTop>0.25in</MarginTop>
-                      <MarginLeft>0.25in</MarginLeft>
-                      <MarginRight>0.25in</MarginRight>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
                       <EmbedFonts>None</EmbedFonts>
-                      <MarginBottom>0.25in</MarginBottom>
+                      <MarginBottom>0cm</MarginBottom>
                     </DeviceInfo>";
-
             rpt.ReportPath = ruta;
+
+            var categoriaGasto = from ca in db.CategoriaGasto select ca;
+
+            categoriaGasto = categoriaGasto.Where(ca => ca.estado.Equals(2) || ca.estado.Equals(1));
+
+            if (!string.IsNullOrEmpty(valorBusq))
+            {
+                categoriaGasto = categoriaGasto.Where(ca => ca.nombreCategoria.Contains(valorBusq));
+            }
+
+
+            BDKermesseEntities modelo = new BDKermesseEntities();
+
+            List<CategoriaGasto> listaCatGasto = new List<CategoriaGasto>();
+            listaCatGasto = categoriaGasto.ToList();
+
+            ReportDataSource rds = new ReportDataSource("DsCategoriaGastos", listaCatGasto);
+            rpt.DataSources.Add(rds);
+
+            byte[] b = rpt.Render(tipo, deviceInfo, out mt, out enc, out f, out s, out w);
+
+            return File(b, mt);
+
+
+        }
+
+        //Get: VerReportesDetalle
+
+        public ActionResult VerReporteCatGastoDetalle(int id)
+        {
+
+            LocalReport rpt = new LocalReport();
+            string mt, enc, f;
+            string[] s;
+            Warning[] w;
+
+            var categoriaGasto = from ca in db.CategoriaGasto select ca;
+            categoriaGasto = categoriaGasto.Where(ca => ca.idCatGasto.Equals(id));
+
+            string ruta = Path.Combine(Server.MapPath("~/Reportes"), "RptCatGastosDetalle.rdlc");
+            string deviceInfo = @"<DeviceInfo>
+                      <OutputFormat>EMF</OutputFormat>
+                      <PageWidth>21.59cm</PageWidth>
+                      <PageHeight>27.94cm</PageHeight>
+                      <MarginTop>0cm</MarginTop>
+                      <MarginLeft>0cm</MarginLeft>
+                      <MarginRight>0cm</MarginRight>
+                      <EmbedFonts>None</EmbedFonts>
+                      <MarginBottom>0cm</MarginBottom>
+                    </DeviceInfo>";
+            rpt.ReportPath = ruta;
+
 
             BDKermesseEntities modelo = new BDKermesseEntities();
 
             List<CategoriaGasto> listaCatGasto = new List<CategoriaGasto>();
             listaCatGasto = modelo.CategoriaGasto.ToList();
 
-            ReportDataSource rds = new ReportDataSource("DsCategoriaGastos", listaCatGasto);
+            ReportDataSource rds = new ReportDataSource("DsCategoriaGastos", categoriaGasto.ToList() );
             rpt.DataSources.Add(rds);
 
-            byte[] b = rpt.Render(tipo, deviceInfo, out mt, out enc, out f, out s, out w);
+            byte[] b = rpt.Render("PDF", deviceInfo, out mt, out enc, out f, out s, out w);
 
             return File(b, mt);
 
