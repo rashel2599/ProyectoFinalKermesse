@@ -153,9 +153,13 @@
     <Compile Include="Controllers\CategoriaProductoesController.cs" />
     <Compile Include="Controllers\GastoesController.cs" />
     <Compile Include="Controllers\GestionController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\IngresoComunidadDetsController.cs" />
     <Compile Include="Controllers\IngresoComunidadsController.cs" />
     <Compile Include="Controllers\ListaPrecioDetsController.cs" />
+=======
+    <Compile Include="Controllers\KermessesController.cs" />
+>>>>>>> a49105e2218eb8005ce6c141ccfebd890e9050c9
     <Compile Include="Controllers\ListaPreciosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MonedasController.cs" />
@@ -397,6 +401,7 @@
     <Content Include="Views\Opcions\VerReporteOpcionDetalle.cshtml" />
     <Content Include="Views\Parroquias\VerReporteParroquiaDetalle.cshtml" />
     <Content Include="Views\Usuarios\VerReporteUsuarioDetalle.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\RolOpcions\Create.cshtml" />
     <Content Include="Views\RolOpcions\Delete.cshtml" />
     <Content Include="Views\RolOpcions\Details.cshtml" />
@@ -432,6 +437,13 @@
     <Content Include="Views\Gastoes\Details.cshtml" />
     <Content Include="Views\Gastoes\Edit.cshtml" />
     <Content Include="Views\Gastoes\Index.cshtml" />
+=======
+    <Content Include="Views\Kermesses\Create.cshtml" />
+    <Content Include="Views\Kermesses\Delete.cshtml" />
+    <Content Include="Views\Kermesses\Details.cshtml" />
+    <Content Include="Views\Kermesses\Edit.cshtml" />
+    <Content Include="Views\Kermesses\Index.cshtml" />
+>>>>>>> a49105e2218eb8005ce6c141ccfebd890e9050c9
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
